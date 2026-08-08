@@ -15,7 +15,6 @@ class MainApp(ttk.App):
 		self.title("App Manager")
 		self.geometry("1250x650")
 		self.style.configure('long.TNotebook', tabposition='wn')
-		self.colours = self.style.colors
 
 
 		NotebookTabs(self)
@@ -80,18 +79,18 @@ class ProductFinder(ttk.Frame):
 
 	    # creating the Tkinter canvas
 	    # containing the Matplotlib figure
-		canvas = FigureCanvasTkAgg(fig, master = self)  
+		canvas = FigureCanvasTkAgg(fig, self)  
 		canvas.draw()
 
 	    # placing the canvas on the Tkinter window
-		canvas.get_tk_widget(fill=self.colors.primary).grid(row=5, column=5)
+		canvas.get_tk_widget().grid(row=5, column=5)
 
 	    # creating the Matplotlib toolbar
 		toolbar = NavigationToolbar2Tk(canvas, self)
 		toolbar.update()
 
 	    # placing the toolbar on the Tkinter window
-		canvas.get_tk_widget().grid(row=6,column=6)
+		toolbar.get_tk_widget().grid(row=6,column=6)
 
 
 
