@@ -63,34 +63,35 @@ class ProductFinder(ttk.Frame):
 
 	def plot(self):
 		#Appearance
-		
-	    # the figure that will contain the plot
-		fig = Figure(figsize = (5, 5),
-	                 dpi = 100)
 
-	    # list of squares
+		# the figure that will contain the plot
+		fig = Figure(figsize = (5, 5),
+		             dpi = 100)
+
+		# list of squares
 		y = [i**2 for i in range(101)]
 
-	    # adding the subplot
+		# adding the subplot
 		plot1 = fig.add_subplot(111)
 
-	    # plotting the graph
+		# plotting the graph
 		plot1.plot(y)
 
-	    # creating the Tkinter canvas
-	    # containing the Matplotlib figure
+		# creating the Tkinter canvas
+		# containing the Matplotlib figure
 		canvas = FigureCanvasTkAgg(fig, self)  
 		canvas.draw()
 
-	    # placing the canvas on the Tkinter window
+		# placing the canvas on the Tkinter window
 		canvas.get_tk_widget().grid(row=5, column=5)
 
-	    # creating the Matplotlib toolbar
-		toolbar = NavigationToolbar2Tk(canvas, self)
+		# creating the Matplotlib toolbar
+		toolbarFrame = ttk.Frame(self).grid(row=6, column=5)
+		toolbar = NavigationToolbar2Tk(canvas, toolbarFrame)
 		toolbar.update()
 
-	    # placing the toolbar on the Tkinter window
-		toolbar.get_tk_widget().grid(row=6,column=6)
+		# placing the toolbar on the Tkinter window
+		#toolbar.get_tk_widget().grid(row=6,column=6)
 
 
 
